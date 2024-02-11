@@ -16,6 +16,10 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('User disconnected');
   });
+
+  socket.on('chatMessage', (data) => {
+    io.emit('chatMessage', data);
+  });
 });
 
 const PORT = process.env.PORT || 3000;
